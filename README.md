@@ -14,26 +14,25 @@ Inside each group, assignments are stored as `.c` or `.ino` files (and notes whe
 ```
 
 📂 GroupA
-├── assignment\_01\_addition.c
-├── assignment\_02\_array\_sum.c
-├── assignment\_03\_memory\_transfer.c
-├── assignment\_04\_menu\_multiply\_divide.c
-└── assignment\_05\_sorting.c
+├── assignment_01_embedded_c_addition
+├── assignment_02_embedded_c_array_sum
+├── assignment_03_memory_transfer
+├── assignment_04_menu_multiply_divide.c
+└── assignment_05_sorting.c
 
 📂 GroupB
-├── assignment\_06\_led\_blink\_pic.c
-├── assignment\_07\_timer\_isr\_buzzer.c
-├── assignment\_08\_external\_interrupt\_relay.c
-└── assignment\_09\_lcd\_interfacing\_pic.c
+├── assignment_06_led_blink_pic.c
+├── assignment_07_timer_isr_buzzer.c
+├── assignment_08_external_interrupt_relay.c
+└── assignment_09_lcd_interfacing_pic.c
 
 📂 GroupC
-├── assignment\_10\_pwm\_servo.c
-├── assignment\_11\_uart\_pc\_to\_pc.c
-└── assignment\_12\_temp\_sensor\_adc\_lcd.c
+├── assignment_10_pwm_servo.c
+├── assignment_11_uart_pc_to_pc.c
+└── assignment_12_temp_sensor_adc_lcd.c
 
 📂 GroupD
-├── assignment\_13\_study\_arduino\_rpi.md   # Theory only
-└── assignment\_14\_digital\_analog\_io.ino  # Arduino / Raspberry Pi code
+└── assignment_14_digital_analog_io.ino  # Arduino / Raspberry Pi code
 
 ````
 
