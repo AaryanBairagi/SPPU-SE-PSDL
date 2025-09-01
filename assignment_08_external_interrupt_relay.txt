@@ -1,0 +1,34 @@
+// Assignment 8: External interrupt on switch press -> output to relay (PIC example)
+// Connect switch to RB0/INT0 and relay driver to RB1 (use transistor driver in hardware)
+
+#include <p18f4550.h>
+
+void main(void) {
+    TRISBbits.TRISB0 = 1; // RB0 as input (INT0)
+    TRISBbits.TRISB1 = 0; // RB1 as output -> relay driver
+    LATBbits.LATB1 = 0;
+
+    // Configure INT0
+    INTCON2bits.INTEDG0 = 1; // rising edge
+    INTCONbits.INT0IF = 0;
+    INTCONbits.INT0IE = 1;
+    INTCONbits.GIE = 1;
+
+    while(1) {
+        // main loop can sleep to save power
+        // WDT? etc.
+    }
+}
+
+// Simple ISR for INT0 (compiler-specific syntax may vary)
+#pragma code high_vector = 0x08
+void high_vector(void){_asm goto isr_high _endasm}
+#pragma code
+#pragma interrupt isr_high
+void isr_high(void){
+    if(INTCONbits.INT0IF) {
+        // Toggle relay
+        LATBbits.LATB1 = ~LATBbits.LATB1;
+        INTCONbits.INT0IF = 0;
+    }
+}

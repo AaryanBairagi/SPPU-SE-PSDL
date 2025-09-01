@@ -1,0 +1,22 @@
+// Assignment 10: Generating PWM signal for servo (PIC PWM example)
+// For PIC18F4550 using CCP1 in PWM mode. Adjust PR2 and duty for correct period (20ms typical for servo).
+
+#include <p18f4550.h>
+
+void timer2Init(void){
+    T2CON = 0b00000100; // prescale 1:1 (tune for Fosc)
+    PR2 = 249; // example value - tune to get 20ms period depending on Fosc
+}
+
+int main(void){
+    TRISCbits.TRISC2 = 0; // CCP1 output
+    CCP1CON = 0b00001100; // PWM mode
+    // Set 1.5ms neutral position: duty = (1.5ms / Tcy) / 4 * (Fosc / prescale) ... tune to get proper value
+    CCPR1L = 125; // coarse LSB
+    timer2Init();
+    TMR2ON = 1;
+    while(1){
+        // sweep or set duty for servo control
+    }
+    return 0;
+}

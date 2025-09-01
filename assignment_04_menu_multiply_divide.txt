@@ -1,0 +1,23 @@
+// Assignment 4: Menu driven multiply/divide 8-bit numbers (console simulation)
+
+#include <p18f4550.h>
+#include <xc.h>
+
+void main(void) {
+    unsigned char a = 12, b = 4;
+    unsigned char choice = 1; // 1 = Multiply, 2 = Divide
+    unsigned int result = 0;
+
+    TRISB = 0x00;
+
+    if(choice == 1) {
+        result = a * b;      // multiplication
+    } else if(choice == 2) {
+        if(b != 0)
+            result = a / b;  // division
+    }
+
+    LATB = result; // show result on LEDs (low 8 bits)
+
+    while(1);
+}

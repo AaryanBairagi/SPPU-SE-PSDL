@@ -1,0 +1,13 @@
+#include <p18f4550.h>
+#include <xc.h>
+
+void main(void) {
+    unsigned char a = 5, b = 7;
+    unsigned char sum;
+
+    TRISB = 0x00;    // PORTB as output
+    sum = a + b;
+    LATB = sum;      // display result on PORTB LEDs
+
+    while(1);
+}

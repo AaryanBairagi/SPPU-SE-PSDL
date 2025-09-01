@@ -1,0 +1,35 @@
+// Assignment 3: Memory transfer (Internal->Internal and Internal->External simulation)
+
+1. Internal to Internal : 
+
+#include <p18f4550.h>
+void internal_to_internal(void) {
+    unsigned char src[5] = {1,2,3,4,5}, dst[5];
+    unsigned char i;
+    for(i=0;i<5;i++) {
+        dst[i]=src[i];
+    }
+}
+void main(void) {
+    internal_to_internal();
+    while(1);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Internal to External, use EEPROM : 
+
+#include <p18f4550.h>
+void internal_to_external(void) {
+    unsigned char val = 0xAA;
+    EEADR = 0x10;
+    EEDATA = val;
+    EECON1bits.WREN = 1;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+}
+void main(void) {
+    internal_to_external();
+    while(1);
+}

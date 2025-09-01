@@ -1,0 +1,20 @@
+// Assignment 2: Add array of n numbers (Embedded C)
+// Reads an array and computes sum. 
+
+#include <p18f4550.h>
+#include <xc.h>
+
+void main(void) {
+    unsigned char arr[5] = {10, 20, 30, 40, 50};
+    unsigned int sum = 0;
+    unsigned char i;
+
+    for(i=0; i<5; i++) {
+        sum += arr[i];
+    }
+
+    TRISB = 0x00;
+    LATB = sum;   // lower 8 bits on LEDs
+
+    while(1);
+}

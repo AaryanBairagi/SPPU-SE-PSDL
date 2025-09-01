@@ -1,0 +1,31 @@
+// Assignment 5: Sorting numbers in ascending and descending order (Embedded C)
+
+#include <p18f4550.h>
+#include <xc.h>
+
+void bubble_sort(unsigned char arr[], unsigned char n, unsigned char order) {
+    unsigned char i, j, temp;
+    for(i=0; i<n-1; i++) {
+        for(j=0; j<n-i-1; j++) {
+            if((order==0 && arr[j] > arr[j+1]) || 
+               (order==1 && arr[j] < arr[j+1])) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+void main(void) {
+    unsigned char data[5] = {12, 3, 45, 7, 19};
+    unsigned char n = 5;
+
+    // order=0 for ascending, order=1 for descending
+    bubble_sort(data, n, 0);
+
+    TRISB = 0x00;
+    LATB = data[0];   // show smallest element on LEDs
+
+    while(1);
+}
