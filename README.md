@@ -152,7 +152,7 @@ python3 assignment_14_rpi.py
 ## 🙌 Author
 
 **Aaryan Bairagi**
-TE IT | Savitribai Phule Pune University
+SE IT | Savitribai Phule Pune University
 GitHub: [@AaryanBairagi](https://github.com/AaryanBairagi)
 
 ---
